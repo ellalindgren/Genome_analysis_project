@@ -1,8 +1,9 @@
-data/
-analyses/
 
+
+# Look into all folders
 !code/
-!**/*.sh
+!analyses/
+!data/
 
 
 # Ignore all sequence and alignment data everywhere
@@ -13,13 +14,22 @@ analyses/
 *.bam
 *.sam
 
-
-
 # Ignore SLURM output logs
 *.out
 *.err
 *.job
 *.sh.*
+
+
+# Dont show assembly output
+**/run1/
+**/canu_results/
+data/raw_data/
+
+# Exceptions 
+!**/*.html
+!**/*.zip
+!**/*.sh
 
 
 
