@@ -1,1 +1,26 @@
-raw_data/
+data/
+analyses/
+
+!code/
+!**/*.sh
+
+
+# Ignore all sequence and alignment data everywhere
+*.fastq.gz
+*.fq.gz
+*.fasta
+*.fa
+*.bam
+*.sam
+
+
+
+# Ignore SLURM output logs
+*.out
+*.err
+*.job
+*.sh.*
+
+
+
+
