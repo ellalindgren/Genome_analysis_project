@@ -1,0 +1,25 @@
+All statistics are based on contigs of size >= 500 bp, unless otherwise noted (e.g., "# contigs (>= 0 bp)" and "Total length (>= 0 bp)" include all contigs).
+
+Assembly                    chr3_polished
+# contigs (>= 0 bp)         80           
+# contigs (>= 1000 bp)      80           
+# contigs (>= 5000 bp)      76           
+# contigs (>= 10000 bp)     75           
+# contigs (>= 25000 bp)     73           
+# contigs (>= 50000 bp)     69           
+Total length (>= 0 bp)      11607884     
+Total length (>= 1000 bp)   11607884     
+Total length (>= 5000 bp)   11598669     
+Total length (>= 10000 bp)  11592067     
+Total length (>= 25000 bp)  11566296     
+Total length (>= 50000 bp)  11380609     
+# contigs                   80           
+Largest contig              544313       
+Total length                11607884     
+GC (%)                      41.43        
+N50                         200019       
+N90                         75337        
+auN                         233825.1     
+L50                         19           
+L90                         55           
+# N's per 100 kbp           0.00         
