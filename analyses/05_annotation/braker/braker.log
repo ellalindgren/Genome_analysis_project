@@ -1,0 +1,645 @@
+#**********************************************************************************
+#                               BRAKER CONFIGURATION                               
+#**********************************************************************************
+# BRAKER CALL: /opt/BRAKER/scripts/braker.pl --genome=/home/ellal/genome_analysis/analyses/05_annotation/repeat_masking/chr3_polished.fasta.masked --bam=/home/ellal/genome_analysis/analyses/05_annotation/hisat2_mapped_data/merged_rnaseq.bam --species=Niphotrichum_japonicum_1 --threads=2 --min_contig=5000 --workingdir=/home/ellal/genome_analysis/analyses/05_annotation/braker --softmasking --skipOptimize
+# Fri Apr 24 17:05:06 2026: braker.pl version 3.0.8
+# Fri Apr 24 17:05:06 2026: Only RNA-Seq input detected, BRAKER will be executed in ET mode (BRAKER1).
+# Fri Apr 24 17:05:06 2026: Configuring of BRAKER for using external tools...
+# Fri Apr 24 17:05:06 2026: Trying to set $AUGUSTUS_CONFIG_PATH...
+# Fri Apr 24 17:05:06 2026: Found environment variable $AUGUSTUS_CONFIG_PATH.
+# Fri Apr 24 17:05:06 2026: Checking /opt/Augustus/config/ as potential path for $AUGUSTUS_CONFIG_PATH.
+# Fri Apr 24 17:05:06 2026: Success! Setting $AUGUSTUS_CONFIG_PATH to /opt/Augustus/config/!
+# Fri Apr 24 17:05:06 2026: Trying to set $AUGUSTUS_BIN_PATH...
+# Fri Apr 24 17:05:06 2026: Found environment variable $AUGUSTUS_BIN_PATH.
+# Fri Apr 24 17:05:06 2026: Checking /opt/Augustus/bin/ as potential path for $AUGUSTUS_BIN_PATH.
+# Fri Apr 24 17:05:06 2026: Success! Setting $AUGUSTUS_BIN_PATH to /opt/Augustus/bin/!
+# Fri Apr 24 17:05:06 2026: Trying to set $AUGUSTUS_SCRIPTS_PATH...
+# Fri Apr 24 17:05:06 2026: Found environment variable $AUGUSTUS_SCRIPTS_PATH.
+# Fri Apr 24 17:05:06 2026: Checking /opt/Augustus/scripts/ as potential path for $AUGUSTUS_SCRIPTS_PATH.
+# Fri Apr 24 17:05:06 2026: Success! Setting $AUGUSTUS_SCRIPTS_PATH to /opt/Augustus/scripts/!
+# Fri Apr 24 17:05:06 2026: Trying to set $PYTHON3_PATH...
+# Fri Apr 24 17:05:06 2026: Did not find environment variable $PYTHON3_PATH.
+# Fri Apr 24 17:05:06 2026: Trying to guess PYTHON3_PATH from location of python3 executable that is available in your $PATH
+# Fri Apr 24 17:05:06 2026: Checking /opt/conda/bin as potential path for $PYTHON3_PATH.
+# Fri Apr 24 17:05:06 2026: Success! Setting $PYTHON3_PATH to /opt/conda/bin!
+# Fri Apr 24 17:05:06 2026: Trying to set $GENEMARK_PATH...
+# Fri Apr 24 17:05:06 2026: Found environment variable $GENEMARK_PATH.
+# Fri Apr 24 17:05:06 2026: Checking /opt/ETP/bin as potential path for $GENEMARK_PATH.
+#*********
+# WARNING: Couldn't find gmes_petap.pl in /opt/ETP/bin. Will not set $GENEMARK_PATH to /opt/ETP/bin!
+#*********
+# Fri Apr 24 17:05:06 2026: Trying to guess GENEMARK_PATH from location of gmes_petap.pl executable that is available in your $PATH
+# Fri Apr 24 17:05:06 2026: Checking /opt/ETP/bin/gmes as potential path for $GENEMARK_PATH.
+# Fri Apr 24 17:05:06 2026: Success! Setting $GENEMARK_PATH to /opt/ETP/bin/gmes!
+# Fri Apr 24 17:05:06 2026: Trying to set $BAMTOOLS_PATH...
+# Fri Apr 24 17:05:06 2026: Did not find environment variable $BAMTOOLS_PATH.
+# Fri Apr 24 17:05:06 2026: Trying to guess BAMTOOLS_PATH from location of bamtools executable that is available in your $PATH
+# Fri Apr 24 17:05:06 2026: Checking /usr/bin as potential path for $BAMTOOLS_PATH.
+# Fri Apr 24 17:05:06 2026: Success! Setting $BAMTOOLS_PATH to /usr/bin!
+# Fri Apr 24 17:05:06 2026: Trying to set $SAMTOOLS_PATH...
+# Fri Apr 24 17:05:06 2026: Did not find environment variable $SAMTOOLS_PATH.
+# Fri Apr 24 17:05:06 2026: Trying to guess SAMTOOLS_PATH from location of samtools executable that is available in your $PATH
+# Fri Apr 24 17:05:06 2026: Checking /usr/bin as potential path for $SAMTOOLS_PATH.
+# Fri Apr 24 17:05:06 2026: Success! Setting $SAMTOOLS_PATH to /usr/bin!
+# Fri Apr 24 17:05:06 2026: Trying to set $DIAMOND_PATH...
+# Fri Apr 24 17:05:06 2026: Did not find environment variable $DIAMOND_PATH.
+# Fri Apr 24 17:05:06 2026: Trying to guess DIAMOND_PATH from location of diamond executable that is available in your $PATH
+# Fri Apr 24 17:05:06 2026: Checking /opt/ETP/tools as potential path for $DIAMOND_PATH.
+# Fri Apr 24 17:05:06 2026: Success! Setting $DIAMOND_PATH to /opt/ETP/tools!
+# Fri Apr 24 17:05:06 2026: Trying to set $TSEBRA_PATH...
+# Fri Apr 24 17:05:06 2026: Did not find environment variable $TSEBRA_PATH.
+# Fri Apr 24 17:05:06 2026: Trying to guess TSEBRA_PATH from location of tsebra.py executable that is available in your $PATH
+# Fri Apr 24 17:05:06 2026: Checking /opt/TSEBRA/bin as potential path for $TSEBRA_PATH.
+# Fri Apr 24 17:05:06 2026: Success! Setting $TSEBRA_PATH to /opt/TSEBRA/bin!
+# Fri Apr 24 17:05:06 2026: Trying to set $CDBTOOLS_PATH...
+# Fri Apr 24 17:05:06 2026: Did not find environment variable $CDBTOOLS_PATH.
+# Fri Apr 24 17:05:06 2026: Trying to guess CDBTOOLS_PATH from location of cdbfasta executable that is available in your $PATH
+# Fri Apr 24 17:05:06 2026: Checking /opt/cdbfasta as potential path for $CDBTOOLS_PATH.
+# Fri Apr 24 17:05:06 2026: Success! Setting $CDBTOOLS_PATH to /opt/cdbfasta!
+#**********************************************************************************
+#                               CREATING DIRECTORY STRUCTURE                       
+#**********************************************************************************
+# Fri Apr 24 17:05:07 2026: creating file that contains citations for this BRAKER run at /home/ellal/genome_analysis/analyses/05_annotation/braker/what-to-cite.txt...
+# Fri Apr 24 17:05:07 2026: create working directory /home/ellal/genome_analysis/analyses/05_annotation/braker/GeneMark-ET.
+mkdir /home/ellal/genome_analysis/analyses/05_annotation/braker/GeneMark-ET
+# Fri Apr 24 17:05:07 2026: create working directory /home/ellal/genome_analysis/analyses/05_annotation/braker/species
+mkdir /home/ellal/genome_analysis/analyses/05_annotation/braker/species
+# Fri Apr 24 17:05:07 2026: create working directory /home/ellal/genome_analysis/analyses/05_annotation/braker/errors
+mkdir /home/ellal/genome_analysis/analyses/05_annotation/braker/errors
+# Fri Apr 24 17:05:07 2026: changing into working directory /home/ellal/genome_analysis/analyses/05_annotation/braker
+cd /home/ellal/genome_analysis/analyses/05_annotation/braker
+# Fri Apr 24 17:05:07 2026: getting GC content of the genome
+/opt/BRAKER/scripts/get_gc_content.py --sequences /home/ellal/genome_analysis/analyses/05_annotation/repeat_masking/chr3_polished.fasta.masked --print_sequence_length 1> /home/ellal/genome_analysis/analyses/05_annotation/braker/gc_content.out 2> /home/ellal/genome_analysis/analyses/05_annotation/braker/errors/gc_content.stderr
+# Fri Apr 24 17:05:09 2026: Creating parameter template files for AUGUSTUS with new_species.pl
+# Fri Apr 24 17:05:09 2026: new_species.pl will create parameter files for species Niphotrichum_japonicum_1 in /opt/Augustus/config//species/Niphotrichum_japonicum_1
+/usr/bin/perl /opt/Augustus/scripts/new_species.pl --species=Niphotrichum_japonicum_1 --AUGUSTUS_CONFIG_PATH=/opt/Augustus/config/ 1> /dev/null 2>/home/ellal/genome_analysis/analyses/05_annotation/braker/errors/new_species.stderr
+# Fri Apr 24 17:05:09 2026: check_fasta_headers(): Checking fasta headers of file /home/ellal/genome_analysis/analyses/05_annotation/repeat_masking/chr3_polished.fasta.masked
+#**********************************************************************************
+#                               PROCESSING HINTS                                   
+#**********************************************************************************
+# Fri Apr 24 17:05:09 2026: Converting bam files to hints
+# Fri Apr 24 17:05:09 2026: Checking bam headers
+# Fri Apr 24 17:05:09 2026: create header file /home/ellal/genome_analysis/analyses/05_annotation/braker/merged_rnaseq_header.sam
+/usr/bin/bamtools header -in /home/ellal/genome_analysis/analyses/05_annotation/hisat2_mapped_data/merged_rnaseq.bam > /home/ellal/genome_analysis/analyses/05_annotation/braker/merged_rnaseq_header.sam
+# Fri Apr 24 17:05:09 2026: Deleting SAM header file /home/ellal/genome_analysis/analyses/05_annotation/braker/merged_rnaseq_header.sam (will not be needed from here on)
+# Fri Apr 24 17:05:09 2026: Deleting /home/ellal/genome_analysis/analyses/05_annotation/braker/merged_rnaseq_new_header.sam
+# Fri Apr 24 17:05:09 2026: make hints from BAM file /home/ellal/genome_analysis/analyses/05_annotation/hisat2_mapped_data/merged_rnaseq.bam
+/opt/Augustus/bin//bam2hints --intronsonly --in=/home/ellal/genome_analysis/analyses/05_annotation/hisat2_mapped_data/merged_rnaseq.bam --out=/home/ellal/genome_analysis/analyses/05_annotation/braker/bam2hints.temp.0.gff 1> /home/ellal/genome_analysis/analyses/05_annotation/braker/errors/bam2hints.0.stdout 2>/home/ellal/genome_analysis/analyses/05_annotation/braker/errors/bam2hints.0.stderr
+# Fri Apr 24 17:07:38 2026: add hints from BAM file /home/ellal/genome_analysis/analyses/05_annotation/hisat2_mapped_data/merged_rnaseq.bam to hints file
+cat /home/ellal/genome_analysis/analyses/05_annotation/braker/bam2hints.temp.0.gff >>/home/ellal/genome_analysis/analyses/05_annotation/braker/hintsfile.temp.gff
+# Fri Apr 24 17:07:38 2026: Checking for hints of src=C and with grp tags that should not be joined according to multiplicity
+# Fri Apr 24 17:07:38 2026: Joining hints that are identical (& from the same source) into multiplicity hints (input file /home/ellal/genome_analysis/analyses/05_annotation/braker/tmp_merge_hints.gff)
+# Fri Apr 24 17:07:38 2026: sort hints of type rnaseq
+cat /home/ellal/genome_analysis/analyses/05_annotation/braker/tmp_merge_hints.gff | sort -n -k 4,4 | sort -s -n -k 5,5 | sort -s -n -k 3,3 | sort -s -k 1,1 >/home/ellal/genome_analysis/analyses/05_annotation/braker/hints.rnaseq.temp.sort.gff
+# Fri Apr 24 17:07:38 2026: join multiple hints
+/usr/bin/perl /opt/Augustus/scripts/join_mult_hints.pl </home/ellal/genome_analysis/analyses/05_annotation/braker/hints.rnaseq.temp.sort.gff >/home/ellal/genome_analysis/analyses/05_annotation/braker/tmp_merge_hints.gff 2>/home/ellal/genome_analysis/analyses/05_annotation/braker/errors/join_mult_hints.rnaseq.stderr
+mv /home/ellal/genome_analysis/analyses/05_annotation/braker/tmp_merge_hints.gff /home/ellal/genome_analysis/analyses/05_annotation/braker/hintsfile.temp.gff
+# Fri Apr 24 17:07:39 2026: filter introns, find strand and change score to 'mult' entry
+/usr/bin/perl /opt/BRAKER/scripts/filterIntronsFindStrand.pl /home/ellal/genome_analysis/analyses/05_annotation/braker/genome.fa /home/ellal/genome_analysis/analyses/05_annotation/braker/hintsfile.temp.gff --score 1>>/home/ellal/genome_analysis/analyses/05_annotation/braker/hintsfile.gff 2>/home/ellal/genome_analysis/analyses/05_annotation/braker/errors/filterIntronsFindStrand.stderr
+# Fri Apr 24 17:07:39 2026: rm /home/ellal/genome_analysis/analyses/05_annotation/braker/hintsfile.temp.gff
+# Fri Apr 24 17:07:39 2026: Preparing hints for running GeneMark
+# Fri Apr 24 17:07:39 2026: Filtering intron hints for GeneMark from /home/ellal/genome_analysis/analyses/05_annotation/braker/hintsfile.gff...
+cat /home/ellal/genome_analysis/analyses/05_annotation/braker/genemark_hintsfile.gff.rnaseq | sort -n -k 4,4 | sort -s -n -k 5,5 | sort -s -k 3,3 | sort -s -k 1,1 | /opt/Augustus/scripts/join_mult_hints.pl > /home/ellal/genome_analysis/analyses/05_annotation/braker/genemark_hintsfile.gff.rnaseq.tmp
+mv /home/ellal/genome_analysis/analyses/05_annotation/braker/genemark_hintsfile.gff.rnaseq.tmp /home/ellal/genome_analysis/analyses/05_annotation/braker/genemark_hintsfile.gff
+#**********************************************************************************
+#                              RUNNING GENEMARK-EX                                 
+#**********************************************************************************
+# Fri Apr 24 17:07:39 2026: Checking whether file /home/ellal/genome_analysis/analyses/05_annotation/braker/genemark_hintsfile.gff contains enough hints and sufficient multiplicity information...
+# Fri Apr 24 17:07:39 2026: Executing GeneMark-ET
+# Fri Apr 24 17:07:39 2026: changing into GeneMark-ET directory /home/ellal/genome_analysis/analyses/05_annotation/braker/GeneMark-ET
+cd /home/ellal/genome_analysis/analyses/05_annotation/braker/GeneMark-ET
+# Fri Apr 24 17:07:39 2026: Executing gmes_petap.pl
+/usr/bin/perl /opt/ETP/bin/gmes/gmes_petap.pl --verbose --sequence=/home/ellal/genome_analysis/analyses/05_annotation/braker/genome.fa --min_contig=5000 --ET=/home/ellal/genome_analysis/analyses/05_annotation/braker/genemark_hintsfile.gff --cores=2 --gc_donor 0.001 1>/home/ellal/genome_analysis/analyses/05_annotation/braker/GeneMark-ET.stdout 2>/home/ellal/genome_analysis/analyses/05_annotation/braker/errors/GeneMark-ET.stderr
+# Fri Apr 24 17:28:04 2026: change to working directory /home/ellal/genome_analysis/analyses/05_annotation/braker
+cd /home/ellal/genome_analysis/analyses/05_annotation/braker
+# Fri Apr 24 17:28:04 2026: Filtering output of GeneMark for generating training genes for AUGUSTUS
+# Fri Apr 24 17:28:04 2026: Checking whether hintsfile contains single exon CDSpart hints or start/stop hints
+# Fri Apr 24 17:28:04 2026: sorting GeneMark predictions in /home/ellal/genome_analysis/analyses/05_annotation/braker/GeneMark-ET/genemark.gtf
+/opt/conda/bin/python3 /opt/BRAKER/scripts/sortGeneMark.py /home/ellal/genome_analysis/analyses/05_annotation/braker/GeneMark-ET/genemark.gtf > /home/ellal/genome_analysis/analyses/05_annotation/braker/GeneMark-ET/genemark.gtf.sorted 2> /home/ellal/genome_analysis/analyses/05_annotation/braker/errors/sortGeneMark.err
+mv /home/ellal/genome_analysis/analyses/05_annotation/braker/GeneMark-ET/genemark.gtf.sorted /home/ellal/genome_analysis/analyses/05_annotation/braker/GeneMark-ET/genemark.gtf
+# Fri Apr 24 17:28:04 2026: filtering GeneMark genes by intron hints
+/usr/bin/perl /opt/BRAKER/scripts/filterGenemark.pl --genemark=/home/ellal/genome_analysis/analyses/05_annotation/braker/GeneMark-ET/genemark.gtf --hints=/home/ellal/genome_analysis/analyses/05_annotation/braker/hintsfile.gff --randomSeed=1 1>/home/ellal/genome_analysis/analyses/05_annotation/braker/filterGenemark.stdout 2>/home/ellal/genome_analysis/analyses/05_annotation/braker/errors/filterGenemark.stderr
+# Fri Apr 24 17:28:04 2026: Ensuring at least 4000 genes in training file 
+/opt/conda/bin/python3 /opt/BRAKER/scripts/ensure_n_training_genes.py --goodGenes /home/ellal/genome_analysis/analyses/05_annotation/braker/GeneMark-ET/genemark.f.good.gtf --badGenes /home/ellal/genome_analysis/analyses/05_annotation/braker/GeneMark-ET/genemark.f.bad.gtf --N 4000 1>/home/ellal/genome_analysis/analyses/05_annotation/braker/ensure_min_n_training_genes.stdout 2>/home/ellal/genome_analysis/analyses/05_annotation/braker/errors/ensure_min_n_training_genes.stderr
+#Fri Apr 24 17:28:04 2026: downsampling good genemark genes according to poisson distribution with Lambda 2:
+/usr/bin/perl /opt/BRAKER/scripts/downsample_traingenes.pl --in_gtf=/home/ellal/genome_analysis/analyses/05_annotation/braker/GeneMark-ET/genemark.f.good.gtf --out_gtf=/home/ellal/genome_analysis/analyses/05_annotation/braker/GeneMark-ET/genemark.d.gtf --lambda=2 1> /home/ellal/genome_analysis/analyses/05_annotation/braker/downsample_traingenes.log 2> /home/ellal/genome_analysis/analyses/05_annotation/braker/errors/downsample_traingenes.err
+#**********************************************************************************
+#                               TRAIN AUGUSTUS                                     
+#**********************************************************************************
+# Fri Apr 24 17:28:05 2026: training AUGUSTUS
+# Fri Apr 24 17:28:05 2026: creating softlink from /home/ellal/genome_analysis/analyses/05_annotation/braker/GeneMark-ET/genemark.gtf to /home/ellal/genome_analysis/analyses/05_annotation/braker/traingenes.gtf.
+ln -s GeneMark-ET/genemark.gtf /home/ellal/genome_analysis/analyses/05_annotation/braker/traingenes.gtf
+# Fri Apr 24 17:28:05 2026: Converting gtf file /home/ellal/genome_analysis/analyses/05_annotation/braker/traingenes.gtf to genbank file
+# Fri Apr 24 17:28:05 2026: Computing flanking region size for AUGUSTUS training genes
+# Fri Apr 24 17:28:05 2026: create genbank file /home/ellal/genome_analysis/analyses/05_annotation/braker/train.gb
+/usr/bin/perl /opt/Augustus/scripts/gff2gbSmallDNA.pl /home/ellal/genome_analysis/analyses/05_annotation/braker/traingenes.gtf /home/ellal/genome_analysis/analyses/05_annotation/braker/genome.fa 1423 /home/ellal/genome_analysis/analyses/05_annotation/braker/train.gb 2>/home/ellal/genome_analysis/analyses/05_annotation/braker/errors/traingenes.gtf_gff2gbSmallDNA.stderr
+#*********
+# INFORMATION: the size of flanking region used in this BRAKER run is 1423. You might need this value if you later add a UTR training on top of an already existing BRAKER run.
+#*********
+# Fri Apr 24 17:28:06 2026: Genbank format file /home/ellal/genome_analysis/analyses/05_annotation/braker/train.gb contains 2111 genes.
+#  Fri Apr 24 17:28:06 2026: concatenating good and downsampled GeneMark training genes to /home/ellal/genome_analysis/analyses/05_annotation/braker/good_genes.lst.
+cat /home/ellal/genome_analysis/analyses/05_annotation/braker/GeneMark-ET/genemark.d.gtf > /home/ellal/genome_analysis/analyses/05_annotation/braker/good_genes.lst
+# Fri Apr 24 17:28:06 2026: Filtering train.gb for "good" mRNAs:
+/usr/bin/perl /opt/Augustus/scripts/filterGenesIn_mRNAname.pl /home/ellal/genome_analysis/analyses/05_annotation/braker/good_genes.lst /home/ellal/genome_analysis/analyses/05_annotation/braker/train.gb > /home/ellal/genome_analysis/analyses/05_annotation/braker/train.f.gb 2>/home/ellal/genome_analysis/analyses/05_annotation/braker/errors/filterGenesIn_mRNAname.stderr
+# Fri Apr 24 17:28:06 2026: Genbank format file /home/ellal/genome_analysis/analyses/05_annotation/braker/train.f.gb contains 1484 genes.
+# Fri Apr 24 17:28:06 2026: Running etraining to catch gene structure inconsistencies:
+/opt/Augustus/bin//etraining --species=Niphotrichum_japonicum_1 --AUGUSTUS_CONFIG_PATH=/opt/Augustus/config/ /home/ellal/genome_analysis/analyses/05_annotation/braker/train.f.gb 1> /home/ellal/genome_analysis/analyses/05_annotation/braker/gbFilterEtraining.stdout 2>/home/ellal/genome_analysis/analyses/05_annotation/braker/errors/gbFilterEtraining.stderr
+# Fri Apr 24 17:28:07 2026: Filtering /home/ellal/genome_analysis/analyses/05_annotation/braker/train.f.gb file to remove inconsistent gene structures...
+/usr/bin/perl /opt/Augustus/scripts/filterGenes.pl /home/ellal/genome_analysis/analyses/05_annotation/braker/etrain.bad.lst /home/ellal/genome_analysis/analyses/05_annotation/braker/train.f.gb 1> /home/ellal/genome_analysis/analyses/05_annotation/braker/train.ff.gb 2>/home/ellal/genome_analysis/analyses/05_annotation/braker/errors/etrainFilterGenes.stderr
+# Fri Apr 24 17:28:07 2026: Genbank format file /home/ellal/genome_analysis/analyses/05_annotation/braker/train.ff.gb contains 1484 genes.
+# Fri Apr 24 17:28:07 2026: BLAST or DIAMOND training gene structures against themselves:
+/usr/bin/perl /opt/Augustus/scripts/aa2nonred.pl /home/ellal/genome_analysis/analyses/05_annotation/braker/traingenes.good.fa /home/ellal/genome_analysis/analyses/05_annotation/braker/traingenes.good.nr.fa --DIAMOND_PATH=/opt/ETP/tools --cores=2 --diamond 1> /home/ellal/genome_analysis/analyses/05_annotation/braker/aa2nonred.stdout 2>/home/ellal/genome_analysis/analyses/05_annotation/braker/errors/aa2nonred.stderr
+# Fri Apr 24 17:28:09 2026: Filtering nonredundant loci into /home/ellal/genome_analysis/analyses/05_annotation/braker/train.fff.gb:
+/usr/bin/perl /opt/Augustus/scripts/filterGenesIn.pl /home/ellal/genome_analysis/analyses/05_annotation/braker/nonred.loci.lst /home/ellal/genome_analysis/analyses/05_annotation/braker/train.ff.gb 1> /home/ellal/genome_analysis/analyses/05_annotation/braker/train.fff.gb 2>/home/ellal/genome_analysis/analyses/05_annotation/braker/errors/filterGenesIn.stderr
+# Fri Apr 24 17:28:09 2026: Genbank format file /home/ellal/genome_analysis/analyses/05_annotation/braker/train.fff.gb contains 1456 genes.
+# Fri Apr 24 17:28:09 2026: Moving /home/ellal/genome_analysis/analyses/05_annotation/braker/train.fff.gb to /home/ellal/genome_analysis/analyses/05_annotation/braker/train.gb:
+mv /home/ellal/genome_analysis/analyses/05_annotation/braker/train.fff.gb /home/ellal/genome_analysis/analyses/05_annotation/braker/train.gb
+# Fri Apr 24 17:28:09 2026: Splitting genbank file into train and test file
+/usr/bin/perl /opt/Augustus/scripts/randomSplit.pl /home/ellal/genome_analysis/analyses/05_annotation/braker/train.gb 300 2>/home/ellal/genome_analysis/analyses/05_annotation/braker/errors/randomSplit.stderr
+# Fri Apr 24 17:28:09 2026: /home/ellal/genome_analysis/analyses/05_annotation/braker/train.gb.test will be used for measuring AUGUSTUS accuracy after training
+# Fri Apr 24 17:28:09 2026: Genbank format file /home/ellal/genome_analysis/analyses/05_annotation/braker/train.gb.test contains 300 genes.
+# Fri Apr 24 17:28:09 2026: Genbank format file /home/ellal/genome_analysis/analyses/05_annotation/braker/train.gb.train contains 1156 genes.
+/usr/bin/perl /opt/Augustus/scripts/randomSplit.pl /home/ellal/genome_analysis/analyses/05_annotation/braker/train.gb.train 300 2>/home/ellal/genome_analysis/analyses/05_annotation/braker/errors/randomSplit.stderr
+# Fri Apr 24 17:28:09 2026: Genbank format file /home/ellal/genome_analysis/analyses/05_annotation/braker/train.gb.train.train contains 856 genes.
+# Fri Apr 24 17:28:09 2026: Genbank format file /home/ellal/genome_analysis/analyses/05_annotation/braker/train.gb.train.test contains 300 genes.
+# Fri Apr 24 17:28:09 2026: /home/ellal/genome_analysis/analyses/05_annotation/braker/train.gb.train.test will be used or measuring AUGUSTUS accuracy during training with optimize_augustus.pl
+ /home/ellal/genome_analysis/analyses/05_annotation/braker/train.gb.train.train will be used for running etraining in optimize_augustus.pl (together with train.gb.train.test)
+ /home/ellal/genome_analysis/analyses/05_annotation/braker/train.gb.train will be used for running etraining (outside of optimize_augustus.pl)
+# Fri Apr 24 17:28:09 2026: Setting value of "stopCodonExcludedFromCDS" in /opt/Augustus/config//species/Niphotrichum_japonicum_1/Niphotrichum_japonicum_1_parameters.cfg to "true"
+# Fri Apr 24 17:28:09 2026: first etraining
+/opt/Augustus/bin//etraining --species=Niphotrichum_japonicum_1 --AUGUSTUS_CONFIG_PATH=/opt/Augustus/config/ /home/ellal/genome_analysis/analyses/05_annotation/braker/train.gb.train 1>/home/ellal/genome_analysis/analyses/05_annotation/braker/firstetraining.stdout 2>/home/ellal/genome_analysis/analyses/05_annotation/braker/errors/firstetraining.stderr
+grep -c "exon doesn't end in stop codon" /home/ellal/genome_analysis/analyses/05_annotation/braker/errors/firstetraining.stderr
+# Fri Apr 24 17:28:10 2026: Error rate of missing stop codon is 0.967128027681661
+# Fri Apr 24 17:28:10 2026: The appropriate value for "stopCodonExcludedFromCDS" seems to be "false".
+# Fri Apr 24 17:28:10 2026: Setting value of "stopCodonExcludedFromCDS" in /opt/Augustus/config//species/Niphotrichum_japonicum_1/Niphotrichum_japonicum_1_parameters.cfg to "false"
+# Fri Apr 24 17:28:10 2026: Running etraining again
+/opt/Augustus/bin//etraining --species=Niphotrichum_japonicum_1 --AUGUSTUS_CONFIG_PATH=/opt/Augustus/config/ /home/ellal/genome_analysis/analyses/05_annotation/braker/train.gb.train 1>/home/ellal/genome_analysis/analyses/05_annotation/braker/firstetraining.stdout 2>/home/ellal/genome_analysis/analyses/05_annotation/braker/errors/firstetraining.stderr
+# Fri Apr 24 17:28:11 2026: Adjusting stop-codon frequencies in species_parameters.cfg according to /home/ellal/genome_analysis/analyses/05_annotation/braker/firstetraining.stdout
+# Fri Apr 24 17:28:11 2026: Setting frequency of stop codons to tag=0.332, taa=0.24, tga=0.428.
+# Fri Apr 24 17:28:11 2026: First AUGUSTUS accuracy test
+/opt/Augustus/bin//augustus --species=Niphotrichum_japonicum_1 --AUGUSTUS_CONFIG_PATH=/opt/Augustus/config/ /home/ellal/genome_analysis/analyses/05_annotation/braker/train.gb.test 1>/home/ellal/genome_analysis/analyses/05_annotation/braker/firsttest.stdout 2>/home/ellal/genome_analysis/analyses/05_annotation/braker/errors/firsttest.stderr
+# Fri Apr 24 17:28:49 2026: Computing accuracy of AUGUSTUS prediction (in test file derived from predictions on training data set stored in /home/ellal/genome_analysis/analyses/05_annotation/braker/firsttest.stdout)
+# Fri Apr 24 17:28:49 2026: The accuracy after initial training (no optimize_augustus.pl, no CRF) is 0.581526666666667
+# Fri Apr 24 17:28:49 2026: Second etraining
+/opt/Augustus/bin//etraining --species=Niphotrichum_japonicum_1 --AUGUSTUS_CONFIG_PATH=/opt/Augustus/config/ /home/ellal/genome_analysis/analyses/05_annotation/braker/train.gb.train 1>/home/ellal/genome_analysis/analyses/05_annotation/braker/secondetraining.stdout 2>/home/ellal/genome_analysis/analyses/05_annotation/braker/errors/secondetraining.stderr
+# Fri Apr 24 17:28:50 2026: Second AUGUSTUS accuracy test
+/opt/Augustus/bin//augustus --species=Niphotrichum_japonicum_1 --AUGUSTUS_CONFIG_PATH=/opt/Augustus/config/ /home/ellal/genome_analysis/analyses/05_annotation/braker/train.gb.test >/home/ellal/genome_analysis/analyses/05_annotation/braker/secondtest.stdout 2>/home/ellal/genome_analysis/analyses/05_annotation/braker/errors/secondtest.stderr
+# Fri Apr 24 17:29:28 2026: Computing accuracy of AUGUSTUS prediction (in test file derived from predictions on training data set stored in /home/ellal/genome_analysis/analyses/05_annotation/braker/secondtest.stdout)
+# Fri Apr 24 17:29:28 2026: The accuracy after training (after optimize_augustus.pl, no CRF) is 0.581526666666667
+# Fri Apr 24 17:29:28 2026: Copying optimized parameters to working directory /home/ellal/genome_analysis/analyses/05_annotation/braker/species
+cp -r /opt/Augustus/config//species/Niphotrichum_japonicum_1 /home/ellal/genome_analysis/analyses/05_annotation/braker/species
+#**********************************************************************************
+#                               PREDICTING GENES WITH AUGUSTUS (NO UTRS)           
+#**********************************************************************************
+# Fri Apr 24 17:29:28 2026: RUNNING AUGUSTUS
+# Fri Apr 24 17:29:28 2026: Preparing genome for running AUGUSTUS in parallel
+# Fri Apr 24 17:29:28 2026: Creating directory for storing AUGUSTUS files (hints, temporarily) /home/ellal/genome_analysis/analyses/05_annotation/braker/genome_split.
+# Fri Apr 24 17:29:28 2026: splitting genome file in smaller parts for parallel execution of AUGUSTUS prediction
+/usr/bin/perl /opt/Augustus/scripts/splitMfasta.pl /home/ellal/genome_analysis/analyses/05_annotation/braker/genome.fa --outputpath=/home/ellal/genome_analysis/analyses/05_annotation/braker/genome_split 2>/home/ellal/genome_analysis/analyses/05_annotation/braker/errors/splitMfasta.stderr
+cd /home/ellal/genome_analysis/analyses/05_annotation/braker/genome_split; for f in genome.split.*; do NAME=`grep ">" $f`; mv $f ${NAME#>}.fa; done; cd ..
+# Fri Apr 24 17:29:29 2026: Split genome file in 80 parts, finished.
+# Fri Apr 24 17:29:29 2026: copy extrinsic file /opt/BRAKER/scripts/cfg/rnaseq.cfg to working directory
+cp /opt/BRAKER/scripts/cfg/rnaseq.cfg /home/ellal/genome_analysis/analyses/05_annotation/braker/species/Niphotrichum_japonicum_1/ex1.cfg
+# Fri Apr 24 17:29:29 2026: Making AUGUSTUS jobs with hintsfile /home/ellal/genome_analysis/analyses/05_annotation/braker/hintsfile.gff, cfgFile /opt/BRAKER/scripts/cfg/rnaseq.cfg, UTR status off, and hintId hints
+# Fri Apr 24 17:29:29 2026: Creating directory for storing AUGUSTUS files (hints, temporarily) /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus_tmp.
+# Fri Apr 24 17:29:29 2026: creating /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints.lst for AUGUSTUS jobs
+# Fri Apr 24 17:29:29 2026: creating AUGUSTUS jobs (with hints)
+cd /home/ellal/genome_analysis/analyses/05_annotation/braker
+/usr/bin/perl /opt/Augustus/scripts/createAugustusJoblist.pl --sequences=/home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints.lst --wrap="#!/bin/bash" --overlap=500000 --chunksize=2500000 --outputdir=/home/ellal/genome_analysis/analyses/05_annotation/braker/augustus_tmp --joblist=/home/ellal/genome_analysis/analyses/05_annotation/braker/hints.job.lst --jobprefix=aug_hints_ --partitionHints --command "/opt/Augustus/bin//augustus --species=Niphotrichum_japonicum_1 --AUGUSTUS_CONFIG_PATH=/opt/Augustus/config/ --extrinsicCfgFile=/opt/BRAKER/scripts/cfg/rnaseq.cfg --alternatives-from-evidence=true --UTR=off --exonnames=on --codingseq=on --allow_hinted_splicesites=gcag,atac " 2>/home/ellal/genome_analysis/analyses/05_annotation/braker/errors/createAugustusJoblist_hints.stderr
+cd ..
+# Fri Apr 24 17:29:29 2026: Running AUGUSTUS jobs from /home/ellal/genome_analysis/analyses/05_annotation/braker/hints.job.lst
+# Fri Apr 24 17:29:29 2026: Running AUGUSTUS job 1
+bash /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_1
+# Fri Apr 24 17:29:29 2026: Running AUGUSTUS job 2
+bash /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_2
+# Fri Apr 24 17:29:29 2026: Running AUGUSTUS job 3
+bash /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_3
+# Fri Apr 24 17:29:30 2026: Running AUGUSTUS job 4
+bash /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_4
+# Fri Apr 24 17:29:37 2026: Running AUGUSTUS job 5
+bash /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_5
+# Fri Apr 24 17:29:48 2026: Running AUGUSTUS job 6
+bash /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_6
+# Fri Apr 24 17:30:15 2026: Running AUGUSTUS job 7
+bash /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_7
+# Fri Apr 24 17:31:07 2026: Running AUGUSTUS job 8
+bash /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_8
+# Fri Apr 24 17:31:18 2026: Running AUGUSTUS job 9
+bash /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_9
+# Fri Apr 24 17:31:41 2026: Running AUGUSTUS job 10
+bash /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_10
+# Fri Apr 24 17:31:47 2026: Running AUGUSTUS job 11
+bash /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_11
+# Fri Apr 24 17:31:57 2026: Running AUGUSTUS job 12
+bash /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_12
+# Fri Apr 24 17:32:09 2026: Running AUGUSTUS job 13
+bash /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_13
+# Fri Apr 24 17:32:14 2026: Running AUGUSTUS job 14
+bash /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_14
+# Fri Apr 24 17:32:26 2026: Running AUGUSTUS job 15
+bash /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_15
+# Fri Apr 24 17:32:31 2026: Running AUGUSTUS job 16
+bash /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_16
+# Fri Apr 24 17:32:33 2026: Running AUGUSTUS job 17
+bash /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_17
+# Fri Apr 24 17:32:53 2026: Running AUGUSTUS job 18
+bash /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_18
+# Fri Apr 24 17:32:59 2026: Running AUGUSTUS job 19
+bash /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_19
+# Fri Apr 24 17:33:12 2026: Running AUGUSTUS job 20
+bash /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_20
+# Fri Apr 24 17:33:16 2026: Running AUGUSTUS job 21
+bash /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_21
+# Fri Apr 24 17:33:18 2026: Running AUGUSTUS job 22
+bash /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_22
+# Fri Apr 24 17:33:56 2026: Running AUGUSTUS job 23
+bash /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_23
+# Fri Apr 24 17:34:15 2026: Running AUGUSTUS job 24
+bash /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_24
+# Fri Apr 24 17:34:21 2026: Running AUGUSTUS job 25
+bash /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_25
+# Fri Apr 24 17:34:29 2026: Running AUGUSTUS job 26
+bash /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_26
+# Fri Apr 24 17:34:42 2026: Running AUGUSTUS job 27
+bash /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_27
+# Fri Apr 24 17:34:42 2026: Running AUGUSTUS job 28
+bash /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_28
+# Fri Apr 24 17:34:46 2026: Running AUGUSTUS job 29
+bash /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_29
+# Fri Apr 24 17:35:02 2026: Running AUGUSTUS job 30
+bash /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_30
+# Fri Apr 24 17:35:25 2026: Running AUGUSTUS job 31
+bash /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_31
+# Fri Apr 24 17:35:32 2026: Running AUGUSTUS job 32
+bash /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_32
+# Fri Apr 24 17:35:38 2026: Running AUGUSTUS job 33
+bash /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_33
+# Fri Apr 24 17:36:13 2026: Running AUGUSTUS job 34
+bash /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_34
+# Fri Apr 24 17:36:30 2026: Running AUGUSTUS job 35
+bash /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_35
+# Fri Apr 24 17:36:39 2026: Running AUGUSTUS job 36
+bash /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_36
+# Fri Apr 24 17:36:40 2026: Running AUGUSTUS job 37
+bash /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_37
+# Fri Apr 24 17:36:41 2026: Running AUGUSTUS job 38
+bash /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_38
+# Fri Apr 24 17:36:59 2026: Running AUGUSTUS job 39
+bash /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_39
+# Fri Apr 24 17:37:08 2026: Running AUGUSTUS job 40
+bash /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_40
+# Fri Apr 24 17:37:14 2026: Running AUGUSTUS job 41
+bash /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_41
+# Fri Apr 24 17:37:21 2026: Running AUGUSTUS job 42
+bash /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_42
+# Fri Apr 24 17:38:30 2026: Running AUGUSTUS job 43
+bash /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_43
+# Fri Apr 24 17:39:18 2026: Running AUGUSTUS job 44
+bash /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_44
+# Fri Apr 24 17:39:27 2026: Running AUGUSTUS job 45
+bash /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_45
+# Fri Apr 24 17:39:49 2026: Running AUGUSTUS job 46
+bash /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_46
+# Fri Apr 24 17:40:12 2026: Running AUGUSTUS job 47
+bash /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_47
+# Fri Apr 24 17:40:13 2026: Running AUGUSTUS job 48
+bash /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_48
+# Fri Apr 24 17:40:33 2026: Running AUGUSTUS job 49
+bash /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_49
+# Fri Apr 24 17:40:39 2026: Running AUGUSTUS job 50
+bash /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_50
+# Fri Apr 24 17:40:45 2026: Running AUGUSTUS job 51
+bash /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_51
+# Fri Apr 24 17:41:01 2026: Running AUGUSTUS job 52
+bash /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_52
+# Fri Apr 24 17:41:02 2026: Running AUGUSTUS job 53
+bash /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_53
+# Fri Apr 24 17:41:03 2026: Running AUGUSTUS job 54
+bash /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_54
+# Fri Apr 24 17:41:41 2026: Running AUGUSTUS job 55
+bash /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_55
+# Fri Apr 24 17:41:44 2026: Running AUGUSTUS job 56
+bash /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_56
+# Fri Apr 24 17:41:50 2026: Running AUGUSTUS job 57
+bash /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_57
+# Fri Apr 24 17:42:08 2026: Running AUGUSTUS job 58
+bash /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_58
+# Fri Apr 24 17:42:13 2026: Running AUGUSTUS job 59
+bash /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_59
+# Fri Apr 24 17:42:41 2026: Running AUGUSTUS job 60
+bash /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_60
+# Fri Apr 24 17:43:11 2026: Running AUGUSTUS job 61
+bash /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_61
+# Fri Apr 24 17:43:39 2026: Running AUGUSTUS job 62
+bash /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_62
+# Fri Apr 24 17:43:52 2026: Running AUGUSTUS job 63
+bash /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_63
+# Fri Apr 24 17:43:56 2026: Running AUGUSTUS job 64
+bash /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_64
+# Fri Apr 24 17:43:57 2026: Running AUGUSTUS job 65
+bash /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_65
+# Fri Apr 24 17:44:29 2026: Running AUGUSTUS job 66
+bash /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_66
+# Fri Apr 24 17:44:36 2026: Running AUGUSTUS job 67
+bash /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_67
+# Fri Apr 24 17:44:37 2026: Running AUGUSTUS job 68
+bash /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_68
+# Fri Apr 24 17:44:39 2026: Running AUGUSTUS job 69
+bash /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_69
+# Fri Apr 24 17:44:46 2026: Running AUGUSTUS job 70
+bash /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_70
+# Fri Apr 24 17:45:16 2026: Running AUGUSTUS job 71
+bash /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_71
+# Fri Apr 24 17:45:23 2026: Running AUGUSTUS job 72
+bash /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_72
+# Fri Apr 24 17:45:30 2026: Running AUGUSTUS job 73
+bash /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_73
+# Fri Apr 24 17:45:32 2026: Running AUGUSTUS job 74
+bash /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_74
+# Fri Apr 24 17:45:56 2026: Running AUGUSTUS job 75
+bash /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_75
+# Fri Apr 24 17:46:09 2026: Running AUGUSTUS job 76
+bash /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_76
+# Fri Apr 24 17:46:10 2026: Running AUGUSTUS job 77
+bash /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_77
+# Fri Apr 24 17:46:16 2026: Running AUGUSTUS job 78
+bash /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_78
+# Fri Apr 24 17:46:38 2026: Running AUGUSTUS job 79
+bash /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_79
+# Fri Apr 24 17:46:48 2026: Running AUGUSTUS job 80
+bash /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_80
+# Fri Apr 24 17:47:34 2026: Joining AUGUSTUS predictions in directory /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus_tmp
+# Fri Apr 24 17:47:34 2026: Concatenating AUGUSTUS output files in /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus_tmp
+cat /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus_tmp/30.001.tig00000059_pilon.fa.1..86637.gff >> /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus.tmp1.gff
+cat /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus_tmp/29.001.tig00000026_pilon.fa.1..150699.gff >> /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus.tmp1.gff
+cat /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus_tmp/28.001.tig00000075_pilon.fa.1..59076.gff >> /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus.tmp1.gff
+cat /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus_tmp/25.001.tig00000047_pilon.fa.1..133028.gff >> /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus.tmp1.gff
+cat /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus_tmp/24.001.tig00000056_pilon.fa.1..75337.gff >> /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus.tmp1.gff
+cat /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus_tmp/22.001.tig00000034_pilon.fa.1..138429.gff >> /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus.tmp1.gff
+cat /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus_tmp/23.001.tig00000029_pilon.fa.1..167168.gff >> /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus.tmp1.gff
+cat /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus_tmp/27.001.tig00000072_pilon.fa.1..52931.gff >> /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus.tmp1.gff
+cat /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus_tmp/26.001.tig00000003_pilon.fa.1..398249.gff >> /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus.tmp1.gff
+cat /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus_tmp/39.001.tig00000073_pilon.fa.1..58148.gff >> /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus.tmp1.gff
+cat /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus_tmp/40.001.tig00000060_pilon.fa.1..73943.gff >> /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus.tmp1.gff
+cat /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus_tmp/41.001.tig00000002_pilon.fa.1..544313.gff >> /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus.tmp1.gff
+cat /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus_tmp/38.001.tig00000049_pilon.fa.1..69752.gff >> /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus.tmp1.gff
+cat /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus_tmp/37.001.tig00000027_pilon.fa.1..123268.gff >> /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus.tmp1.gff
+cat /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus_tmp/42.001.tig00000010_pilon.fa.1..289940.gff >> /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus.tmp1.gff
+cat /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus_tmp/33.001.tig00000005_pilon.fa.1..443288.gff >> /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus.tmp1.gff
+cat /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus_tmp/32.001.tig00000031_pilon.fa.1..150810.gff >> /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus.tmp1.gff
+cat /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus_tmp/31.001.tig00000081_pilon.fa.1..56782.gff >> /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus.tmp1.gff
+cat /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus_tmp/36.001.tig00000068_pilon.fa.1..6602.gff >> /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus.tmp1.gff
+cat /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus_tmp/35.001.tig00000057_pilon.fa.1..14120.gff >> /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus.tmp1.gff
+cat /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus_tmp/34.001.tig00000046_pilon.fa.1..68490.gff >> /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus.tmp1.gff
+cat /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus_tmp/10.001.tig00000030_pilon.fa.1..159205.gff >> /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus.tmp1.gff
+cat /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus_tmp/9.001.tig00000080_pilon.fa.1..41254.gff >> /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus.tmp1.gff
+cat /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus_tmp/8.001.tig00000006_pilon.fa.1..306305.gff >> /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus.tmp1.gff
+cat /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus_tmp/12.001.tig00000045_pilon.fa.1..110768.gff >> /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus.tmp1.gff
+cat /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus_tmp/11.001.tig00000053_pilon.fa.1..86213.gff >> /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus.tmp1.gff
+cat /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus_tmp/2.001.tig00000061_pilon.fa.1..60883.gff >> /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus.tmp1.gff
+cat /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus_tmp/3.001.tig00000023_pilon.fa.1..195386.gff >> /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus.tmp1.gff
+cat /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus_tmp/1.001.tig00000077_pilon.fa.1..1351.gff >> /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus.tmp1.gff
+cat /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus_tmp/6.001.tig00000011_pilon.fa.1..286817.gff >> /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus.tmp1.gff
+cat /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus_tmp/7.001.tig00000038_pilon.fa.1..107399.gff >> /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus.tmp1.gff
+cat /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus_tmp/5.001.tig00000009_pilon.fa.1..330691.gff >> /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus.tmp1.gff
+cat /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus_tmp/4.001.tig00000042_pilon.fa.1..103631.gff >> /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus.tmp1.gff
+cat /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus_tmp/19.001.tig00000055_pilon.fa.1..81028.gff >> /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus.tmp1.gff
+cat /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus_tmp/18.001.tig00000043_pilon.fa.1..106737.gff >> /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus.tmp1.gff
+cat /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus_tmp/17.001.tig00000079_pilon.fa.1..81463.gff >> /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus.tmp1.gff
+cat /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus_tmp/21.001.tig00000022_pilon.fa.1..200019.gff >> /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus.tmp1.gff
+cat /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus_tmp/20.001.tig00000007_pilon.fa.1..306393.gff >> /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus.tmp1.gff
+cat /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus_tmp/14.001.tig00000052_pilon.fa.1..49197.gff >> /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus.tmp1.gff
+cat /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus_tmp/13.001.tig00000064_pilon.fa.1..55092.gff >> /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus.tmp1.gff
+cat /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus_tmp/15.001.tig00000025_pilon.fa.1..172369.gff >> /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus.tmp1.gff
+cat /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus_tmp/16.001.tig00000014_pilon.fa.1..233388.gff >> /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus.tmp1.gff
+cat /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus_tmp/68.001.tig00000051_pilon.fa.1..70455.gff >> /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus.tmp1.gff
+cat /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus_tmp/70.001.tig00000044_pilon.fa.1..117156.gff >> /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus.tmp1.gff
+cat /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus_tmp/69.001.tig00000037_pilon.fa.1..199129.gff >> /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus.tmp1.gff
+cat /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus_tmp/64.001.tig00000013_pilon.fa.1..199863.gff >> /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus.tmp1.gff
+cat /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus_tmp/67.001.tig00000021_pilon.fa.1..212838.gff >> /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus.tmp1.gff
+cat /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus_tmp/66.001.tig00000070_pilon.fa.1..45718.gff >> /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus.tmp1.gff
+cat /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus_tmp/65.001.tig00000063_pilon.fa.1..82849.gff >> /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus.tmp1.gff
+cat /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus_tmp/78.001.tig00000054_pilon.fa.1..104025.gff >> /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus.tmp1.gff
+cat /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus_tmp/77.001.tig00000036_pilon.fa.1..158339.gff >> /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus.tmp1.gff
+cat /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus_tmp/76.001.tig00000062_pilon.fa.1..70608.gff >> /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus.tmp1.gff
+cat /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus_tmp/80.001.tig00000041_pilon.fa.1..95438.gff >> /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus.tmp1.gff
+cat /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus_tmp/79.001.tig00000012_pilon.fa.1..301590.gff >> /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus.tmp1.gff
+cat /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus_tmp/71.001.tig00000065_pilon.fa.1..73428.gff >> /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus.tmp1.gff
+cat /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus_tmp/75.001.tig00000008_pilon.fa.1..245444.gff >> /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus.tmp1.gff
+cat /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus_tmp/73.001.tig00000015_pilon.fa.1..213923.gff >> /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus.tmp1.gff
+cat /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus_tmp/74.001.tig00000039_pilon.fa.1..117850.gff >> /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus.tmp1.gff
+cat /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus_tmp/72.001.tig00000024_pilon.fa.1..188079.gff >> /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus.tmp1.gff
+cat /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus_tmp/51.001.tig00000066_pilon.fa.1..11651.gff >> /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus.tmp1.gff
+cat /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus_tmp/50.001.tig00000032_pilon.fa.1..126806.gff >> /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus.tmp1.gff
+cat /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus_tmp/49.001.tig00000082_pilon.fa.1..51513.gff >> /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus.tmp1.gff
+cat /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus_tmp/48.001.tig00000048_pilon.fa.1..49518.gff >> /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus.tmp1.gff
+cat /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus_tmp/53.001.tig00000016_pilon.fa.1..209589.gff >> /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus.tmp1.gff
+cat /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus_tmp/52.001.tig00000074_pilon.fa.1..3239.gff >> /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus.tmp1.gff
+cat /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus_tmp/45.001.tig00000035_pilon.fa.1..155313.gff >> /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus.tmp1.gff
+cat /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus_tmp/44.001.tig00000019_pilon.fa.1..175693.gff >> /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus.tmp1.gff
+cat /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus_tmp/43.001.tig00000001_pilon.fa.1..483542.gff >> /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus.tmp1.gff
+cat /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus_tmp/46.001.tig00000069_pilon.fa.1..2225.gff >> /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus.tmp1.gff
+cat /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus_tmp/47.001.tig00000040_pilon.fa.1..99972.gff >> /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus.tmp1.gff
+cat /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus_tmp/59.001.tig00000017_pilon.fa.1..272422.gff >> /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus.tmp1.gff
+cat /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus_tmp/63.001.tig00000067_pilon.fa.1..2400.gff >> /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus.tmp1.gff
+cat /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus_tmp/62.001.tig00000020_pilon.fa.1..225810.gff >> /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus.tmp1.gff
+cat /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus_tmp/61.001.tig00000071_pilon.fa.1..80645.gff >> /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus.tmp1.gff
+cat /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus_tmp/60.001.tig00000058_pilon.fa.1..77730.gff >> /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus.tmp1.gff
+cat /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus_tmp/56.001.tig00000028_pilon.fa.1..136643.gff >> /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus.tmp1.gff
+cat /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus_tmp/55.001.tig00000004_pilon.fa.1..393120.gff >> /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus.tmp1.gff
+cat /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus_tmp/54.001.tig00000050_pilon.fa.1..104308.gff >> /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus.tmp1.gff
+cat /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus_tmp/57.001.tig00000083_pilon.fa.1..56785.gff >> /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus.tmp1.gff
+cat /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus_tmp/58.001.tig00000033_pilon.fa.1..155629.gff >> /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus.tmp1.gff
+/usr/bin/perl /opt/Augustus/scripts/join_aug_pred.pl < /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus.tmp1.gff > /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus.hints.gff
+# Fri Apr 24 17:47:34 2026: Deleting /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus_tmp
+# Fri Apr 24 17:47:34 2026: Deleting /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus.tmp1.gff
+# Fri Apr 24 17:47:34 2026: deleting files from AUGUSTUS parallelization
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_74
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_1
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_59
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_30
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_5
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_48
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_73
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_41
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_18
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_67
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_29
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_55
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_80
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_50
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_31
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_28
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_49
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_64
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_43
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_23
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_10
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_44
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_58
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_25
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_71
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_2
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_7
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_47
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_14
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_56
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_70
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_63
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_54
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_11
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_32
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_4
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_69
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_77
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_79
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_40
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_72
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_35
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_36
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_61
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_16
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_24
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_66
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_33
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_19
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_8
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_78
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_65
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_3
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_17
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_68
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_34
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_38
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_27
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_6
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_62
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_45
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_52
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_26
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_22
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_21
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_75
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_60
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_20
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_76
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_15
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_53
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_46
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_51
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_42
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_9
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_12
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_37
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_13
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_57
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints_39
+# Fri Apr 24 17:47:34 2026: Making a gtf file from /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus.hints.gff
+cat /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus.hints.gff | /usr/bin/perl -ne 'if(m/\tAUGUSTUS\t/) {print $_;}' | /usr/bin/perl /opt/Augustus/scripts/gtf2gff.pl --printExon --out=/home/ellal/genome_analysis/analyses/05_annotation/braker/augustus.hints.tmp.gtf 2>/home/ellal/genome_analysis/analyses/05_annotation/braker/errors/gtf2gff.augustus.hints.gtf.stderr
+# Fri Apr 24 17:47:35 2026: Making a fasta file with protein sequences of /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus.hints.gtf
+/opt/conda/bin/python3 /opt/Augustus/scripts/getAnnoFastaFromJoingenes.py -g /home/ellal/genome_analysis/analyses/05_annotation/braker/genome.fa -f /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus.hints.gtf -o /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus.hints 1> /home/ellal/genome_analysis/analyses/05_annotation/braker/getAnnoFastaFromJoingenes.augustus.hints_tmp.stdout 2>/home/ellal/genome_analysis/analyses/05_annotation/braker/errors/getAnnoFastaFromJoingenes.augustus.hints_tmp.stderr
+# Fri Apr 24 17:47:36 2026: fixing AUGUSTUS genes with in frame stop codons...
+/opt/conda/bin/python3 /opt/Augustus/scripts/fix_in_frame_stop_codon_genes.py -g /home/ellal/genome_analysis/analyses/05_annotation/braker/genome.fa -t /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus.hints.gtf -b /home/ellal/genome_analysis/analyses/05_annotation/braker/bad_genes.lst -o augustus.hints_fix_ifs_ -s Niphotrichum_japonicum_1 -m off --UTR off --print_utr off -a /opt/Augustus/config/ -C /opt/cdbfasta -A /opt/Augustus/bin/ -S /opt/Augustus/scripts/ -H /home/ellal/genome_analysis/analyses/05_annotation/braker/hintsfile.gff -e /opt/BRAKER/scripts/cfg/rnaseq.cfg  > /home/ellal/genome_analysis/analyses/05_annotation/braker/fix_in_frame_stop_codon_genes_augustus.hints.log 2> /home/ellal/genome_analysis/analyses/05_annotation/braker/errors/fix_in_frame_stop_codon_genes_augustus.hints.err
+# Fri Apr 24 17:47:54 2026: Moving gene prediction file without in frame stop codons to location of original file (overwriting it)...
+mv /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus.hints_fix_ifs_.gtf /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus.hints.gtf
+# Fri Apr 24 17:47:54 2026: Deleting file with genes with in frame stop codons...
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/bad_genes.lst
+# Fri Apr 24 17:47:54 2026: Making a fasta file with protein sequences of /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus.hints.gtf
+/opt/conda/bin/python3 /opt/Augustus/scripts/getAnnoFastaFromJoingenes.py -g /home/ellal/genome_analysis/analyses/05_annotation/braker/genome.fa -f /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus.hints.gtf -o /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus.hints 1> /home/ellal/genome_analysis/analyses/05_annotation/braker/getAnnoFastaFromJoingenes.augustus.hints_hints.stdout 2>/home/ellal/genome_analysis/analyses/05_annotation/braker/errors/getAnnoFastaFromJoingenes.augustus.hints_hints.stderr
+# Fri Apr 24 17:47:55 2026: AUGUSTUS prediction complete
+# Fri Apr 24 17:47:55 2026: Trying to create merged gene set from GeneMark-EX and AUGUSTUS predictions (braker.gtf/braker.utr.gtf)...
+# Fri Apr 24 17:47:55 2026: Trying to create combined gene set with TSEBRA...
+/opt/TSEBRA/bin/tsebra.py --keep_gtf /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus.hints.gtf,/home/ellal/genome_analysis/analyses/05_annotation/braker/GeneMark-ET/genemark.f.multi_anchored.gtf,/home/ellal/genome_analysis/analyses/05_annotation/braker/GeneMark-ET/genemark.f.single_anchored.gtf --cfg /opt/TSEBRA/bin/../config/braker3.cfg --out /home/ellal/genome_analysis/analyses/05_annotation/braker/braker.gtf -q 2>/home/ellal/genome_analysis/analyses/05_annotation/braker/errors/tsebra.stderr
+mv /home/ellal/genome_analysis/analyses/05_annotation/braker/braker.gtf /home/ellal/genome_analysis/analyses/05_annotation/braker/braker.gtf_temp
+# Fri Apr 24 17:47:56 2026: Making a fasta file with protein sequences of /home/ellal/genome_analysis/analyses/05_annotation/braker/braker.gtf
+/opt/conda/bin/python3 /opt/Augustus/scripts/getAnnoFastaFromJoingenes.py -g /home/ellal/genome_analysis/analyses/05_annotation/braker/genome.fa -f /home/ellal/genome_analysis/analyses/05_annotation/braker/braker.gtf -o /home/ellal/genome_analysis/analyses/05_annotation/braker/braker 1> /home/ellal/genome_analysis/analyses/05_annotation/braker/getAnnoFastaFromJoingenes.braker_.stdout 2>/home/ellal/genome_analysis/analyses/05_annotation/braker/errors/getAnnoFastaFromJoingenes.braker_.stderr
+# Fri Apr 24 17:47:57 2026: deleting empty files
+# Fri Apr 24 17:47:57 2026: find /home/ellal/genome_analysis/analyses/05_annotation/braker -empty
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/fix_in_frame_stop_codon_genes_augustus.hints.log
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/errors/firsttest.stderr
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/errors/getAnnoFastaFromJoingenes.augustus.hints_hints.stderr
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/errors/filterGenesIn_mRNAname.stderr
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/errors/getAnnoFastaFromJoingenes.braker_.stderr
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/errors/etrainFilterGenes.stderr
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/errors/getAnnoFastaFromJoingenes.augustus.hints_tmp.stderr
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/errors/gtf2gff.augustus.hints.gtf.stderr
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/errors/find_python3_biopython.err
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/errors/join_mult_hints.rnaseq.stderr
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/errors/secondetraining.stderr
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/errors/randomSplit.stderr
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/errors/filterIntronsFindStrand.stderr
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/errors/gbFilterEtraining.stderr
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/errors/tsebra.stderr
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/errors/tsebra_rename.stderr
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/errors/traingenes.gtf_gff2gbSmallDNA.stderr
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/errors/filterGenesIn.stderr
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/errors/bam2hints.0.stderr
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/errors/GeneMark-ET.stderr
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/errors/firstetraining.stderr
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/errors/sortGeneMark.err
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/errors/createAugustusJoblist_hints.stderr
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/errors/filterGenemark.stderr
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/errors/find_python3_re.err
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/errors/new_species.stderr
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/errors/fix_in_frame_stop_codon_genes_augustus.hints.err
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/errors/downsample_traingenes.err
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/errors/gc_content.stderr
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/errors/bam2hints.0.stdout
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/errors/secondtest.stderr
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/errors/splitMfasta.stderr
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/getAnnoFastaFromJoingenes.augustus.hints_hints.stdout
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/singlecds.hints
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/downsample_traingenes.log
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/getAnnoFastaFromJoingenes.braker_.stdout
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/GeneMark-ET/genemark.f.bad.gtf
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/GeneMark-ET/genemark.f.single_anchored.gtf
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/etrain.bad.lst
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/tmp_no_merge_hints.gff
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/ensure_min_n_training_genes.stdout
+# Fri Apr 24 17:47:57 2026: deleting job lst files (if existing)
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/train.ff.gb
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/traingenes.good.fa
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/firstetraining.stdout
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/gbFilterEtraining.stdout
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/traingenes.good.nr.fa
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/train.f.gb
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/secondetraining.stdout
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus.hints.tmp.gtf
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/train.gb.test
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/traingenes.good.gtf
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/train.gb.train
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/hints.job.lst
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/fix_IFS_log_tvqoyfqy
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/aug_hints.lst
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/nonred.loci.lst
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/traingenes.gtf
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/aa2nonred.stdout
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/train.gb.train.test
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/good_genes.lst
+rm /home/ellal/genome_analysis/analyses/05_annotation/braker/train.gb.train.train
+/usr/bin/perl /opt/BRAKER/scripts/braker_cleanup.pl --wdir=/home/ellal/genome_analysis/analyses/05_annotation/braker
+Deleting file /home/ellal/genome_analysis/analyses/05_annotation/braker/firsttest.stdout
+Deleting file /home/ellal/genome_analysis/analyses/05_annotation/braker/genome.fa
+Deleting file /home/ellal/genome_analysis/analyses/05_annotation/braker/secondtest.stdout
+Deleting file /home/ellal/genome_analysis/analyses/05_annotation/braker/train.gb
+Deleting file /home/ellal/genome_analysis/analyses/05_annotation/braker/GeneMark-ET/genemark.d.gtf
+Deleting file /home/ellal/genome_analysis/analyses/05_annotation/braker/GeneMark-ET/genemark.f.good.gtf
+Deleting file /home/ellal/genome_analysis/analyses/05_annotation/braker/GeneMark-ET/genemark.c.gtf
+Deleting file /home/ellal/genome_analysis/analyses/05_annotation/braker/GeneMark-ET/genemark.average_gene_length.out
+Deleting file /home/ellal/genome_analysis/analyses/05_annotation/braker/GeneMark-ET/gmes.log
+Deleting file /home/ellal/genome_analysis/analyses/05_annotation/braker/GeneMark-ET/run.cfg
+Deleting file /home/ellal/genome_analysis/analyses/05_annotation/braker/GeneMark-ET.stdout
+Deleting file /home/ellal/genome_analysis/analyses/05_annotation/braker/filterGenemark.stdout
+Deleting file /home/ellal/genome_analysis/analyses/05_annotation/braker/genome.fa.cidx
+Deleting file /home/ellal/genome_analysis/analyses/05_annotation/braker/getAnnoFastaFromJoingenes.augustus.hints_tmp.stdout
+Deleting file /home/ellal/genome_analysis/analyses/05_annotation/braker/augustus.hints.gff
+Deleting file /home/ellal/genome_analysis/analyses/05_annotation/braker/braker.gtf_temp
+Deleting file /home/ellal/genome_analysis/analyses/05_annotation/braker/genemark_hintsfile.gff
+Deleting file /home/ellal/genome_analysis/analyses/05_annotation/braker/gc_content.out
+Deleting directory /home/ellal/genome_analysis/analyses/05_annotation/braker/GeneMark-ET/data
+Deleting directory /home/ellal/genome_analysis/analyses/05_annotation/braker/GeneMark-ET/info
+Deleting directory /home/ellal/genome_analysis/analyses/05_annotation/braker/GeneMark-ET/output
+Deleting directory /home/ellal/genome_analysis/analyses/05_annotation/braker/GeneMark-ET/run
+#**********************************************************************************
+#                               BRAKER RUN FINISHED                                
+#**********************************************************************************
